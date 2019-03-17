@@ -1,6 +1,6 @@
-import React from './my-react/react/react'
+import React, { ConcurrentMode } from './my-react/react/react'
 import ReactDOM from './my-react/react-dom/react-dom'
-
+import './index.css'
 let Context = React.createContext({ding: 666})
 
 let Provider = Context.Provider
@@ -85,11 +85,95 @@ class Ding7 extends React.Component {
 }
 
 class Ding10 extends React.Component {
+  state = {
+    ding: false
+  }
+  handleClickBtn = () => {
+    this.setState({
+      ding: !this.state.ding
+    })
+  }
+  returnFn = () => {
+    if (this.state.ding) {
+      return (
+        <h1 onClick={this.handleClickBtn}>H1</h1>
+      )
+    } else {
+      return (
+        <h3 onClick={this.handleClickBtn}>H3</h3>
+      )
+    }
+  }
   render() {
     return (
       <div>
-        <h1>h1</h1>
-        <h2>h2</h2>
+        {this.returnFn()}
+      </div>
+    )
+  }
+}
+
+class Ding12 extends React.Component {
+  render() {
+    return (
+      <div>789</div>
+    )
+  }
+}
+
+class Ding11 extends React.Component {
+  state = {
+    ding: false
+  }
+  handleClickBtn = () => {
+    this.setState({
+      ding: !this.state.ding
+    })
+  }
+  returnFn = () => {
+    if (this.state.ding) {
+      return (
+        <h1 onClick={this.handleClickBtn}>H1</h1>
+      )
+    } else {
+      return (
+        <h3 onClick={this.handleClickBtn}>H3</h3>
+      )
+    }
+  }
+  render() {
+    return (
+      <div>
+        <Ding12></Ding12>
+        {this.returnFn()}
+      </div>
+    )
+  }
+}
+
+class Ding13 extends React.Component {
+  state = {
+    ding: false
+  }
+  handleClick = () => {
+    this.setState({
+      ding: !this.state.ding
+    })
+  }
+  createChild = () => {
+    let res = []
+    for (let i = 0; i < 1000; i++) {
+      res.push(<div>{this.state.ding ? 666 : 999}</div>)
+    }
+    return res
+  }
+  render() {
+    return(
+      <div>
+        <h1 onClick={this.handleClick}>click</h1>
+        <div class="move">
+          {this.createChild()}
+        </div>
       </div>
     )
   }
@@ -97,8 +181,12 @@ class Ding10 extends React.Component {
 
 ReactDOM.render(
   // <Ding3></Ding3>,
-  <Ding4></Ding4>,
+  // <Ding4></Ding4>,
   // <Ding7></Ding7>,
   // <Ding10></Ding10>,
+  // <Ding11></Ding11>,
+  <ConcurrentMode>
+    <Ding13></Ding13>
+  </ConcurrentMode>,
   document.querySelector('#app')
 )
