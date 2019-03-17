@@ -1,11 +1,11 @@
 ```js
-
+// 标记挂起优先级
 function markPendingPriorityLevel(root, expirationTime) {
   // 每次一轮更新完成之后earliestPendingTime和latestPendingTime还有latestPendingTime会被重置为NoWork
 
   // 这个表示root上等待更新的优先级最高的任务
   // earliestPendingTime是NoWork的话说明这个root目前没有等待更新的任务
-  let earliestPendingTime = root.earliestPendingTime
+  let earliestPendingTime = root.earliestPendingTime // earliestPendingTime
   // 这个表示root上等待更新的优先级最低的任务
   let latestPendingTime = root.latestPendingTime
   if (earliestPendingTime === NoWork) {

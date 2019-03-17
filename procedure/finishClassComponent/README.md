@@ -7,8 +7,8 @@ function finishClassComponent(workInProgress, shouldUpdate) {
   if (!shouldUpdate) return bailoutOnAlreadyFinishedWork(workInProgress)
   let instance = workInProgress.stateNode
   // 这块就是class类里写的render方法
-  let nextChild = instance.render()
-  reconcileChildren(workInProgress, nextChild)
+  let nextChild = instance.render() // 对class 类型的话 render 就是header
+  reconcileChildren(workInProgress, nextChild) 
   workInProgress.memoizedState = instance.state
   return workInProgress.child
 }

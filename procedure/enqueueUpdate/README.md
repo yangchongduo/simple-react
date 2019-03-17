@@ -1,4 +1,5 @@
 ```js
+// 给fiber 增加更新队列
 function enqueueUpdate(fiber, update) {
   // 这里的fiber.alternate不能叫current
   // 因为在之后的逻辑中 这个fiber.alternate有可能作为workInProgress

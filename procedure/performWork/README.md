@@ -1,9 +1,9 @@
 ```js
  function performWork(minExpirationTime, isYield) {
 
-  findHighestPriorityRoot()
+  findHighestPriorityRoot() // 放到全局变量上去了
 
-  if (!isYield) {
+  if (!isYield) { // is Yield
     // 进入这里说明是优先级高 不允许暂停
     // 第三个参数表示不能暂停
     while (

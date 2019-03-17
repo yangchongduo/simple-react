@@ -4,6 +4,9 @@ function constructorClassInstance(workInProgress, nextProps, component) {
   let instance = new component(nextProps, context)
   workInProgress.memoizedState = instance.state || null
   cc(workInProgress, instance)
+  // 执行组件 同时 组件和fiber 互指
+  // fiber.stateNode= instance
+  // instance._reactinternalFiber= workInProgress;
   return instance
 }
 ```

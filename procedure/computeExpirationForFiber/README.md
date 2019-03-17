@@ -1,4 +1,5 @@
 ```js
+// fiber 增加过期时间
 function computeExpirationForFiber(currentTime, fiber) {
   let expirationTime = null
   if (expirationContext !== NoWork) {

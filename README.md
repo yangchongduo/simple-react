@@ -44,7 +44,11 @@ ReactDOM.render(调用关系基本是按照缩进来的)<br>
 &emsp;&emsp;[requestCurrentTime](./procedure/requestCurrentTime)<br>
 &emsp;&emsp;[computeExpirationForFiber](./procedure/computeExpirationForFiber)<br>
 &emsp;[scheduleRootUpdate](./procedure/scheduleRootUpdate)<br>
+&emsp;&emsp;[flushPassiveEffects](./procedure/flushPassiveEffects)<br>
 &emsp;&emsp;[enqueueUpdate](./procedure/enqueueUpdate)<br>
+&emsp;&emsp;&emsp;[createUpdateQueue](./procedure/createUpdateQueue)<br>
+&emsp;&emsp;&emsp;[cloneUpdateQueue](./procedure/cloneUpdateQueue)<br>
+&emsp;&emsp;&emsp;[appendUpdateToQueue](./procedure/appendUpdateToQueue)<br>
 &emsp;&emsp;[scheduleWork](./procedure/scheduleWork)<br>
 &emsp;&emsp;&emsp;[scheduleWorkToRoot](./procedur/scheduleWorkToRoot)<br>
 &emsp;&emsp;&emsp;[markPendingPriorityLevel](./procedure/markPendingPriorityLevel)<br>
@@ -52,6 +56,7 @@ ReactDOM.render(调用关系基本是按照缩进来的)<br>
 &emsp;&emsp;&emsp;&emsp;[addRootToSchedule](./procedure/addRootToSchedule)<br>
 &emsp;&emsp;&emsp;&emsp;[performSyncWork](./procedure/performSyncWork)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;[performWork](./procedure/performWork)(也会走到下面那个performWorkOnRoot中)<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[findHighestPriorityRoot](./procedure/findHighestPriorityRoot)<br>
 &emsp;&emsp;&emsp;&emsp;[scheduleCallbackWithExpirationTime](./procedure/scheduleCallbackWithExpirationTime)(未完成)<br>
 &emsp;&emsp;&emsp;&emsp;[performWorkOnRoot](./procedure/performWorkOnRoot)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;[renderRoot](./procedure/renderRoot)<br>

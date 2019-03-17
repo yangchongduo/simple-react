@@ -9,10 +9,21 @@ function legacyRenderSubtreeIntoContainer(parentComponent, children, container, 
     // react源码中还要传个是否是服务端渲染
     // 这个isConcurrent表示不使用异步渲染
     // 因为初次渲染时是一定要同步更新的 所以这里要默认状态是false
-    let isConcurrent = false
+    let isConcurrent = false // 并行的，就是异步的
     // 就是这里创建了一个Root作为React应用的根儿
     // 然后在创建Root的同时还顺便创建了一个未初始化的RootFiber
-    root = container._reactRootContainer = new ReactRoot(container, isConcurrent)
+    // _reactRootContainer fiber 
+    // ReactRoot 不是一个 fiber
+    root = container._reactRootContainer = new ReactRoot(container, isConcurrent) 
+
+   
+
+    new ReactRoot
+        this._internalRoot = root;
+        const root = createContainer(container, isConcurrent, hydrate);
+              createFiberRoot(container) // 创建filberRoot的时候，创建了一个未初始化的filber uninitializedFiber
+                const uninitializedFiber = createHostRootFiber(isConcurrent);
+                        createHostRootFiber //  调用了 new FiberNode(); 
 
     // 这里要检查callback
     // ...
@@ -25,5 +36,43 @@ function legacyRenderSubtreeIntoContainer(parentComponent, children, container, 
     })
   }
 }
+
+```
+
+```js 
+  rootFilber的
+ root = ({
+      current: uninitializedFiber, //  未初始化的fliber
+      containerInfo: containerInfo, // 真实的dom 元素
+      pendingChildren: null,
+
+      earliestPendingTime: NoWork,
+      latestPendingTime: NoWork,
+      earliestSuspendedTime: NoWork,
+      latestSuspendedTime: NoWork,
+      latestPingedTime: NoWork,
+
+      pingCache: null,
+
+      didError: false,
+
+      pendingCommitExpirationTime: NoWork,
+      finishedWork: null,
+      timeoutHandle: noTimeout,
+      context: null,
+      pendingContext: null,
+      hydrate,
+      nextExpirationTimeToWorkOn: NoWork,
+      expirationTime: NoWork,
+      firstBatch: null,
+      nextScheduledRoot: null,
+
+      interactionThreadID: unstable_getThreadID(),
+      memoizedInteractions: new Set(),
+      pendingInteractionMap: new Map(),
+    }: FiberRoot);
+
+    // 未初始化的 fiber上的stateNode = root 进行互指
+     uninitializedFiber.stateNode = root;
 
 ```
