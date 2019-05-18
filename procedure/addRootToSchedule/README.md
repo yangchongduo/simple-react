@@ -10,11 +10,13 @@ function addRootToSchedule(root, expirationTime) {
     // 这个时候两次更新的 root都是一样的
     // 所以就变成了 root.nextScheduledRoot = root
     if (!lastScheduledRoot) {
-      firstScheduledRoot = lastScheduledRoot = root
+      firstScheduledRoot = lastScheduledRoot = root //多个root 成为为链表
       root.nextScheduledRoot = root
     } else {
       // 这个就是循环链表正常的改变指向的操作
+      // lastScheduledRoot 上一个root 
       lastScheduledRoot.nextScheduledRoot = root
+      // firstScheduledRoot.nextScheduledRoot=root
       lastScheduledRoot = root
       lastScheduledRoot.nextScheduledRoot = firstScheduledRoot
     }

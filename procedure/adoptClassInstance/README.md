@@ -1,4 +1,5 @@
 ```js
+// 应用类实例
 function adoptClassInstance(workInProgress, instance) {
   // 该方法先让Component构造函数中的this.updater = classComponentUpdater
   // classComponentUpdater就是那个有enqueueSetState等方法的那个对象

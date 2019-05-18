@@ -11,7 +11,7 @@ export type Fiber = {|
   // minimize the number of objects created during the initial render.
 
   // Tag identifying the type of fiber.
-  tag: WorkTag, // 哪种类型的fiber
+  tag: WorkTag, // 哪种类型的fiber HOSTComponent
 
   // Unique identifier of this child.
   key: null | string, 
@@ -69,7 +69,8 @@ export type Fiber = {|
   mode: TypeOfMode,
 
   // Effect
- effectTag: SideEffectTag, // 是哪种更新类型？ placement 还会 placement|update   自身fiber 发生什么样的变化
+ effectTag: SideEffectTag, // 是哪种更新类型？ placement 还会 placement | update   自身fiber 发生什么样的变化
+// 基本
 
   // Singly linked list fast path to the next fiber with side-effects.
   nextEffect: Fiber | null,

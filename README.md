@@ -39,13 +39,16 @@
 &emsp;&emsp;
 因为react这个库本身没做啥事儿，就是把JSX肝成React元素之类的(就是那个有$$typeof的就是react元素)，主要做事儿的都是react-dom做的，所以就只写一些react-dom的方法。<br><br>
 ReactDOM.render(调用关系基本是按照缩进来的)<br>
-&emsp;[legacyRenderSubtreeIntoContainer](./procedure/legacyRenderSubtreeIntoContainer)<br>
-&emsp;[updateContainer](./procedure/updateContainer)<br>
-&emsp;&emsp;[requestCurrentTime](./procedure/requestCurrentTime)<br>
-&emsp;&emsp;[computeExpirationForFiber](./procedure/computeExpirationForFiber)<br>
+&emsp;[legacyRenderSubtreeIntoContainer](./procedure/legacyRenderSubtreeIntoContainer) 创建 reactroot root fiber 节点<br>
+&emsp;&emsp;[createFiberRoot](./procedure/createFiberRoot) 创建fiber root 节点 为了dom 对比创建了 uninstallfiber <br>
+&emsp;[updateContainer](./procedure/updateContainer) 主要是更新container 的 current <br>
+&emsp;&emsp;[requestCurrentTime](./procedure/requestCurrentTime) 获取当前的过期时间 <br> 
+&emsp;&emsp;[findHighestPriorityRoot](./procedure/findHighestPriorityRoot)获取 当前最高优先级root <br>
+&emsp;&emsp;[computeExpirationForFiber](./procedure/computeExpirationForFiber) 为 fiber 创建过期时间<br>
+&emsp;&emsp;[updateContainerAtExpirationTime](./procedure/updateContainerAtExpirationTime)<br>
 &emsp;[scheduleRootUpdate](./procedure/scheduleRootUpdate)<br>
 &emsp;&emsp;[flushPassiveEffects](./procedure/flushPassiveEffects)<br>
-&emsp;&emsp;[enqueueUpdate](./procedure/enqueueUpdate)<br>
+&emsp;&emsp;[enqueueUpdate](./procedure/enqueueUpdate) 为fiber 上增加 过期update <br>
 &emsp;&emsp;&emsp;[createUpdateQueue](./procedure/createUpdateQueue)<br>
 &emsp;&emsp;&emsp;[cloneUpdateQueue](./procedure/cloneUpdateQueue)<br>
 &emsp;&emsp;&emsp;[appendUpdateToQueue](./procedure/appendUpdateToQueue)<br>
@@ -62,6 +65,7 @@ ReactDOM.render(调用关系基本是按照缩进来的)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;[renderRoot](./procedure/renderRoot)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[createWorkInProgress](./procedure/createWorkInProgress)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[createFiber](./procedure/createFiber)<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[startWorkLoopTimer](./procedure/startWorkLoopTimer)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[workLoop](./procedure/render/workLoop)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[performUnitOfWork](./procedure/performUnitOfWork)<br>
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[beginWork](./procedure/beginWork)<br>
@@ -124,6 +128,9 @@ ReactDOM.render(调用关系基本是按照缩进来的)<br>
 <br>
 <br>
 setState(同步)<br>
+[ReactBaseClasses](./procedure/ReactBaseClasses)
+&emsp;[ReactNoopUpdateQueue](./procedure/ReactNoopUpdateQueue)
+ReactNoopUpdateQueue
 &emsp;[enqueueSetState](./procedure/enqueueSetState)
 <br>
 &emsp;&emsp;[requestCurrentTime](./procedure/requestCurrentTime)

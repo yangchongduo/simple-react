@@ -1,7 +1,14 @@
 ```js
 function performUnitOfWork(workInProgress) {
+   {
+        setCurrentFiber(workInProgress); //  全局有一个current 变量，存放当前的fiber
+  }
+  // replayFailedUnitOfWorkWithInvokeGuardedCallback 只有dev 下面才会有用，production 没用
+  if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+      stashedWorkInProgressProperties = assignFiberPropertiesInDEV(stashedWorkInProgressProperties, workInProgress);
+    }
   // beginWork就是开始工作 开始工作就是创建出子fiber节点
-  let next = beginWork(workInProgress)
+  let next = beginWork(workInProgress) // 创建一次的fiber
   workInProgress.memoizedProps = workInProgress.pendingProps
 
   if (next === null) {

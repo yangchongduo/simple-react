@@ -16,7 +16,7 @@ function scheduleRootUpdate(current$$1, element, expirationTime, callback) {
   flushPassiveEffects(); // todo:暂时不知道
   enqueueUpdate(current$$1, update); // 给 fiber 增加 enqueueUpdate  enqueueUpdate是一个列表
   scheduleWork(current$$1, expirationTime);
-
+  
   return expirationTime;
 }
 ```

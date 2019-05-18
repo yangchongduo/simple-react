@@ -16,15 +16,13 @@ function legacyRenderSubtreeIntoContainer(parentComponent, children, container, 
     // ReactRoot 不是一个 fiber
     root = container._reactRootContainer = new ReactRoot(container, isConcurrent) 
 
-   
-
     new ReactRoot
         this._internalRoot = root;
         const root = createContainer(container, isConcurrent, hydrate);
               createFiberRoot(container) // 创建filberRoot的时候，创建了一个未初始化的filber uninitializedFiber
                 const uninitializedFiber = createHostRootFiber(isConcurrent);
                         createHostRootFiber //  调用了 new FiberNode(); 
-
+                        
     // 这里要检查callback
     // ...
     
