@@ -11,7 +11,7 @@ export type Fiber = {|
   // minimize the number of objects created during the initial render.
 
   // Tag identifying the type of fiber.
-  tag: WorkTag, // 哪种类型的fiber HOSTComponent
+  tag: WorkTag, // 哪种类型的 fiber HOSTComponent 
 
   // Unique identifier of this child.
   key: null | string, 

@@ -1,8 +1,8 @@
 ```js
-// 给fiber 增加更新队列
+// 给 fiber 增加更新队列
 function enqueueUpdate(fiber, update) {
-  // 这里的fiber.alternate不能叫current
-  // 因为在之后的逻辑中 这个fiber.alternate有可能作为workInProgress
+  // 这里的fiber.alternate 不能叫 current
+  // 因为在之后的逻辑中 这个 fiber.alternate 有可能作为workInProgress
   // 也可能作为current  
   let alternate = fiber.alternate
   let queue1 = fiber.updateQueue || null
@@ -13,7 +13,7 @@ function enqueueUpdate(fiber, update) {
     queue1 = fiber.updateQueue || (fiber.updateQueue = createUpdateQueue(fiber.memoizedState))
     queue2 = null
   } else {
-    // 进到这里的话 说明肯定不是初次渲染或者该组件第一次执行setState
+    // 进到这里的话 说明肯定不是初次渲染 或者 该组件第一次执行setState
     // 只有当某个组件第二次或第二次执行了setState之后才会进入这里
 
     // 但是基本上进到这里来的情况 queue1和queue2的updateQueue应该都有

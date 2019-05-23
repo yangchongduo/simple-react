@@ -19,7 +19,7 @@ const queue: UpdateQueue<State> = {
     lastUpdate: null,
     firstCapturedUpdate: null, //Captured Update 捕获更新
     lastCapturedUpdate: null, 
-    firstEffect: null, // 效果 影响
+    firstEffect: null, // 效果 影响  // 都是update  update 有tag，决定做什么操作。间接影响到fiber的 effectTag 
     lastEffect: null,
     firstCapturedEffect: null,
     lastCapturedEffect: null,

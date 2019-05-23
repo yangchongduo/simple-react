@@ -1,11 +1,12 @@
 ```js
 function createWorkInProgress(current, pendingProps) {
   // 首次渲染时候只会给FiberRoot创建RootFiber 也就是这个current 所以不会有alternate
-  // alternate一般是用来连接上一次状态的fiber的 也就是current
+  // alternate一般是用来连接上一次状态的 fiber的 也就是current
   // 每次渲染或更新都会从FiberRoot开始
   // 一般来讲 当执行setState时class下的节点都有current
   // 但是如果是新创建的节点 就是说上一轮中根本没有这个节点的话
   // 那这种节点也不会有alternate
+  // workInProgress  暂时认为有这个节点
   let workInProgress = current.alternate
   if (!workInProgress) {
     workInProgress = createFiber(current.tag, pendingProps, current.key, current.mode)

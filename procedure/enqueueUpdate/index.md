@@ -1,10 +1,11 @@
-```js
+```js 
+创建 enqueueUpdate ，同时将update 放在这个队列里面
 export function enqueueUpdate<State>(fiber: Fiber, update: Update<State>) {
   // Update queues are created lazily.
   const alternate = fiber.alternate; 
   let queue1;
   let queue2;
-  // alternate 两个fiber 节点之间的关联
+  // alternate 两个 fiber 节点之间的关联
   if (alternate === null) {
     // There's only one fiber.
     queue1 = fiber.updateQueue; 

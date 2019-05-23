@@ -1,7 +1,7 @@
 ```js
  function performWork(minExpirationTime, isYield) {
 
-  findHighestPriorityRoot() // 放到全局变量上去了
+  findHighestPriorityRoot() // 放到全局变量上去了   前期放在 root 有一个 列表
 
   if (!isYield) { // is Yield
     // 进入这里说明是优先级高 不允许暂停

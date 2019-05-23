@@ -1,4 +1,5 @@
 ```js
+// 请求work
 function requestWork(root, expirationTime) {
   addRootToSchedule(root, expirationTime)
 
@@ -11,6 +12,7 @@ function requestWork(root, expirationTime) {
   // 如果是批量更新比如说同一个事件中触发了好多setState的情况下就直接return 之后的react的事件回调会触发更新渲染
   if (isBatchingUpdates && !isUnbatchingUpdates) return null
   // 如果时间是Sync说明他是个最高优先级的同步任务或者是初次渲染
+  //TODO:执行work
   if (expirationTime === Sync) return performSyncWork(root)
   // 如果时间不为Sync说明可能是个异步任务或者批量任务
   if (expirationTime !== Sync) return scheduleCallbackWithExpirationTime(root, expirationTime)

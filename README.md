@@ -41,11 +41,11 @@
 ReactDOM.render(调用关系基本是按照缩进来的)<br>
 &emsp;[legacyRenderSubtreeIntoContainer](./procedure/legacyRenderSubtreeIntoContainer) 创建 reactroot root fiber 节点<br>
 &emsp;&emsp;[createFiberRoot](./procedure/createFiberRoot) 创建fiber root 节点 为了dom 对比创建了 uninstallfiber <br>
-&emsp;[updateContainer](./procedure/updateContainer) 主要是更新container 的 current <br>
+&emsp;[updateContainer](./procedure/updateContainer) react.render 传入的组件作为孩子节点  更新root ，要根据传入的 element 创建fiber架构 <br>
 &emsp;&emsp;[requestCurrentTime](./procedure/requestCurrentTime) 获取当前的过期时间 <br> 
 &emsp;&emsp;[findHighestPriorityRoot](./procedure/findHighestPriorityRoot)获取 当前最高优先级root <br>
 &emsp;&emsp;[computeExpirationForFiber](./procedure/computeExpirationForFiber) 为 fiber 创建过期时间<br>
-&emsp;&emsp;[updateContainerAtExpirationTime](./procedure/updateContainerAtExpirationTime)<br>
+&emsp;&emsp;[updateContainerAtExpirationTime](./procedure/updateContainerAtExpirationTime) <br>
 &emsp;[scheduleRootUpdate](./procedure/scheduleRootUpdate)<br>
 &emsp;&emsp;[flushPassiveEffects](./procedure/flushPassiveEffects)<br>
 &emsp;&emsp;[enqueueUpdate](./procedure/enqueueUpdate) 为fiber 上增加 过期update <br>
@@ -137,7 +137,7 @@ ReactNoopUpdateQueue
 <br>
 &emsp;&emsp;[computeExpirationForFiber](./procedure/computeExpirationForFiber)
 <br>
-&emsp;&emsp;[createUpdate](./procedure/createUpdate)
+&emsp;&emsp;[createUpdate](./procedure/createUpdate) 每次setState 都会创建 一个update 放在 参数放在payload（负载）
 <br>
 &emsp;&emsp;[enqueueUpdate](./procedure/enqueueUpdate)
 <br>

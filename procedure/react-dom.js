@@ -53,14 +53,14 @@ let nextRenderExpirationTime = NoWork // 表示当前正在执行render的过程
 let isBatchingUpdates = false
 let isUnbatchingUpdates = false
 let isBatchingInteractiveUpdates = false
-// 这几个是用来记录react应用最初执行时间以及计算currentTime的
+// 这几个是用来记录 react 应用最初执行时间以及计算currentTime的
 let originalStartTimeMs = performance.now()
 let currentRendererTime = msToExpirationTime(originalStartTimeMs)
 let currentSchedulerTime = currentRendererTime
 let expirationContext = NoWork
 
 
-/* ---------计算时间相关 */
+/* ---------计算时间相关---- */
 function requestCurrentTime() {
   if (isRendering) {
     // 已经开始渲染的话就返回最近计算出来的时间
@@ -805,7 +805,9 @@ function renderRoot(root, isYield) {
     root.pendingCommitExpirationTime = NoWork
   }
 
-  // 这个workLoop就是要不停(或有停止)地递归生成fiber树
+  // 这个workLoop就是要不停(或有停止)地递归生成fiber树 
+  // TODO:执行完之后就 root.current.alternate。chilren.stateNode.innerHtml是 要挂载在 页面的真实dom了
+  // 在vue 阶段这个是
   workLoop(isYield)
   // debugger
   root.finishedWork = root.current.alternate

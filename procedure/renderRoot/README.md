@@ -29,7 +29,8 @@ function renderRoot(root, isYield) {
     // 然后就会又进到这里
     nextRenderExpirationTime = expirationTime
     // 创建第一个要工作的单元
-    // 第二个参数是要传入的props 初始是null
+    // 第二个参数是要传入的props 初始是null 
+    // 
     nextUnitOfWork = createWorkInProgress(root.current, null)
     root.pendingCommitExpirationTime = NoWork
   }
@@ -38,7 +39,6 @@ function renderRoot(root, isYield) {
   workLoop(isYield)
   // debugger
   root.finishedWork = root.current.alternate
-
 
   // 在初次渲染时 肯定会给RootFiber一个current
   // 所以当在调度RootFiber的子节点的时候 根据current有或无 来判断是直接reconcilec还是mount

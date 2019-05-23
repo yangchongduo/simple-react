@@ -1,10 +1,11 @@
 ```js
 function workLoop(isYield) {
-  // 这里要把每一个workInProgress作为参数
+  // 这里要把每一个 workInProgress 作为参数
   // 然后在performUnitOfWork中生成下一个workInProgress
   // 直到没有workInProgress或者时间不够用了才退出
   if (!isYield) {
     // 如果不能暂停的话就一路solo下去
+    // 第一个 work 是根据 fiberRoot上的current的 uninstallFiber 创建的 workInProgess
     while (!!nextUnitOfWork) {
       // 每个节点或者说每个react元素都是一个unit
       // 不管是真实dom节点还是class类或是函数节点

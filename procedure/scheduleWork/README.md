@@ -10,7 +10,7 @@ function scheduleWork(fiber, expirationTime) {
   // 这里头给root挂上了expirationTime和nextExpirationTimeToWorkOn
   markPendingPriorityLevel(root, expirationTime)
   if (!isWorking) {
-    // 
+    // 开始从 work  执行 work
     requestWork(root, root.expirationTime)
   }
 }

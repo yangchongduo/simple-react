@@ -7,6 +7,7 @@ function performWorkOnRoot(root, expirationTime, isYield) {
     // 或者是在异步的状态下 上一帧生成好了fiber树但是没时间提交了 于是放到这一帧
     completeRoot(root, finishedWork, expirationTime)
   } else {
+    // 是非常重要的  开始创建fiber
     renderRoot(root, isYield)
     if (!!root.finishedWork) {
       if ( !isYield || (isYield && shouldYieldToRenderer()) ) {

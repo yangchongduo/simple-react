@@ -1,9 +1,11 @@
 ```js
 function updateHostRoot(workInProgress) {
-  // 对于Root来讲 它的state就是ReactDOM.render传进来的第一个参数
+  // 对于Root来讲 它的state就是 ReactDOM.render传进来的第一个参数
   // 当然第一次肯定是没有的 因为这里获取的prevChildren 初次渲染的时候没有上一个节点
   let prevState = workInProgress.memoizedState
   let prevChildren = prevState !== null ? prevState.element : null
+  // 执行工作work上的 根据 workInProgress UpdateQueue ,改变这个fiber的 effectTag ，这个effectTag决定什么样的处理
+  //  workInProgress.effectTag |= Callback; 
   processUpdateQueue(workInProgress, null)
   // 这个memoizedState是在上面那个provessUpdateQueue中赋值的
   // 就是从update上把payload拿出来 对于Root节点 它的payload是 {element}
