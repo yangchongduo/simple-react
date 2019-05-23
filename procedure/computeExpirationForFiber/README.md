@@ -1,5 +1,6 @@
 ```js
 // fiber 增加过期时间
+// 根据 mode 是什么类型的  ConcurrentMode 为异步mode 
 function computeExpirationForFiber(currentTime, fiber) {
   let expirationTime = null
   if (expirationContext !== NoWork) {

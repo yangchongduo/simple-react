@@ -1,5 +1,7 @@
-```js
-// 请求work
+
+```js 
+//  非常重要 根据expirationTime 来看 是什么时候 更新
+// 请求work 
 function requestWork(root, expirationTime) {
   addRootToSchedule(root, expirationTime)
 
@@ -16,5 +18,9 @@ function requestWork(root, expirationTime) {
   if (expirationTime === Sync) return performSyncWork(root)
   // 如果时间不为Sync说明可能是个异步任务或者批量任务
   if (expirationTime !== Sync) return scheduleCallbackWithExpirationTime(root, expirationTime)
+  // 在expirationTime 结束之前 能够更新就可以了，优先级比较低
+  
 }
 ```
+
+

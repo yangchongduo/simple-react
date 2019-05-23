@@ -1,6 +1,9 @@
+
 ```js
+//  1、react Root 是怎么生成的。 ReactDom.render 生成一个 FiberRoot，
+//  2、执行 几次 ReactDom.render  就会生成 几个 root，这种场景还是存在的 。
 function addRootToSchedule(root, expirationTime) {
-  // lastScheduledRoot 和 firstScheduleRoot这俩是全局变量
+  // lastScheduledRoot 和 firstScheduleRoot 这俩是全局变量
   // 如果react应用存在多个 root 可能会这俩会成为一个单向链表的结构
   if (!root.nextScheduledRoot) {
     root.expirationTime = expirationTime
